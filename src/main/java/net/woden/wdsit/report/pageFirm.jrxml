@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bbe5b793-4300-43b3-8bf2-0c02b586e1e7">
+	<property name="ireport.zoom" value="0.9090909090909093"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<queryString language="SQL">
+		<![CDATA[SELECT
+     ScrapImage."id" AS ScrapImage_id,
+     ScrapImage."imageLogo" AS ScrapImage_imageLogo,
+     ScrapImage."imageFirmOne" AS ScrapImage_imageFirmOne,
+     ScrapImage."imageFirmTwo" AS ScrapImage_imageFirmTwo,
+     ScrapImage."imageFrimTheer" AS ScrapImage_imageFrimTheer
+FROM
+     "dbo"."ScrapImage" ScrapImage]]>
+	</queryString>
+	<field name="ScrapImage_id" class="java.lang.Integer"/>
+	<field name="ScrapImage_imageLogo" class="java.io.InputStream"/>
+	<field name="ScrapImage_imageFirmOne" class="java.io.InputStream"/>
+	<field name="ScrapImage_imageFirmTwo" class="java.io.InputStream"/>
+	<field name="ScrapImage_imageFrimTheer" class="java.io.InputStream"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageFooter>
+		<band height="410" splitType="Stretch">
+			<rectangle>
+				<reportElement x="22" y="20" width="242" height="174" uuid="2124a323-ce2b-4f45-9118-d6c38489b9a0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="280" y="20" width="242" height="174" uuid="c215f191-15e4-4bdc-ba17-68fead39ec5d"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="22" y="211" width="242" height="174" uuid="af4b74b0-6ff8-4f06-93e1-8c35d1e54e14"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="280" y="211" width="242" height="174" uuid="af0c3b6a-1311-40c5-898e-c87e92462b34"/>
+			</rectangle>
+			<image scaleImage="FillFrame" isUsingCache="true" isLazy="true" onErrorType="Icon" evaluationTime="Report">
+				<reportElement stretchType="RelativeToTallestObject" x="23" y="22" width="240" height="170" uuid="ba965608-e52a-42d6-8a3a-b14843d66774"/>
+				<imageExpression><![CDATA[$F{ScrapImage_imageFirmOne}]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame">
+				<reportElement x="282" y="22" width="239" height="170" uuid="104e4fe8-2920-44da-a546-fdaa378f50ec"/>
+				<imageExpression><![CDATA[$F{ScrapImage_imageFirmTwo}]]></imageExpression>
+			</image>
+			<image scaleImage="FillFrame">
+				<reportElement x="23" y="215" width="240" height="167" uuid="da8cf1d8-3aa1-4626-b565-2c52d12b7ca0"/>
+				<imageExpression><![CDATA[$F{ScrapImage_imageFrimTheer}]]></imageExpression>
+			</image>
+		</band>
+	</pageFooter>
+</jasperReport>

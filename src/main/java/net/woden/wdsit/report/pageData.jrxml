@@ -1,0 +1,392 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="bce6aa04-0271-4ae9-80a9-65f27c3d8a64">
+	<property name="ireport.zoom" value="0.9090909090909101"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="12"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 1_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 2_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 3_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table 4_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="2a8f1989-a12f-464c-acfd-b65b3f3a4e9b"/>
+	<subDataset name="Table Dataset 2" uuid="9198a167-66bf-4da6-9e19-89b1af69e694"/>
+	<subDataset name="New Dataset 1" uuid="9d6cbcd9-e890-479f-bfb3-9609d9d06426">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     ScrapSerial."id" AS ScrapSerial_id,
+     ScrapSerial."serial" AS ScrapSerial_serial,
+     ScrapSerial."lote" AS ScrapSerial_lote,
+     ScrapSerial."sample" AS ScrapSerial_sample,
+     ScrapSerial."status" AS ScrapSerial_status,
+     ScrapSerial."image" AS ScrapSerial_image
+FROM
+     "dbo"."ScrapSerial" ScrapSerial]]>
+		</queryString>
+		<field name="ScrapSerial_id" class="java.lang.Integer"/>
+		<field name="ScrapSerial_serial" class="java.lang.String"/>
+		<field name="ScrapSerial_lote" class="java.lang.String"/>
+		<field name="ScrapSerial_sample" class="java.lang.String"/>
+		<field name="ScrapSerial_status" class="java.lang.String"/>
+		<field name="ScrapSerial_image" class="java.lang.Object"/>
+	</subDataset>
+	<subDataset name="New Dataset 2" uuid="8058ef57-ce48-486c-ae44-4d3f8fefa2cf">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     Scrap."customer" AS Scrap_customer,
+     Scrap."dateEntry" AS Scrap_dateEntry,
+     Scrap."dateAudi" AS Scrap_dateAudi,
+     Scrap."liderAssurance" AS Scrap_liderAssurance,
+     Scrap."typeAudi" AS Scrap_typeAudi,
+     Scrap."outcomeAudi" AS Scrap_outcomeAudi
+FROM
+     "dbo"."Scrap" Scrap]]>
+		</queryString>
+		<field name="Scrap_customer" class="java.lang.String"/>
+		<field name="Scrap_dateEntry" class="java.sql.Timestamp"/>
+		<field name="Scrap_dateAudi" class="java.sql.Timestamp"/>
+		<field name="Scrap_liderAssurance" class="java.lang.String"/>
+		<field name="Scrap_typeAudi" class="java.lang.String"/>
+		<field name="Scrap_outcomeAudi" class="java.lang.String"/>
+	</subDataset>
+	<queryString>
+		<![CDATA[SELECT
+     ScrapSerial."id" AS ScrapSerial_id,
+     ScrapSerial."serial" AS ScrapSerial_serial,
+     ScrapSerial."lote" AS ScrapSerial_lote,
+     ScrapSerial."sample" AS ScrapSerial_sample,
+     ScrapSerial."status" AS ScrapSerial_status,
+     ScrapSerial."image" AS ScrapSerial_image,
+     ScrapSerial."imageVar" AS ScrapSerial_imageVar
+FROM
+     "dbo"."ScrapSerial" ScrapSerial]]>
+	</queryString>
+	<field name="ScrapSerial_id" class="java.lang.Integer"/>
+	<field name="ScrapSerial_serial" class="java.lang.String"/>
+	<field name="ScrapSerial_lote" class="java.lang.String"/>
+	<field name="ScrapSerial_sample" class="java.lang.String"/>
+	<field name="ScrapSerial_status" class="java.lang.String"/>
+	<field name="ScrapSerial_image" class="java.lang.Object"/>
+	<field name="ScrapSerial_imageVar" class="java.lang.Object"/>
+	<group name="page3">
+		<groupExpression><![CDATA[$F{ScrapSerial_id}]]></groupExpression>
+	</group>
+	<pageFooter>
+		<band height="625">
+			<componentElement>
+				<reportElement key="table 2" style="table 2" x="84" y="108" width="355" height="126" uuid="2e0d51a5-c663-439c-8ab4-da172002e4c9"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 1" uuid="741158f6-009c-4ea8-a91e-d2d2ce82c61e">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="90" uuid="c1d276cc-7dfe-4c96-b5ff-273be18cde02">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="dd934795-d543-4409-af55-cfd0d1c218d6"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[MUESTREO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="fa60b39d-95e9-4409-9c93-0c2a7be0356e"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{ScrapSerial_id}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="d3ddd960-2398-4b84-acb1-8be83ef3b849">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="f0b8c0f4-b7c7-4746-9062-4617ceb56040"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[PNC]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="ba53abf2-0df7-4897-8474-9428f418c83a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{ScrapSerial_serial}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="90" uuid="14cd5429-c2a6-4ffe-9471-f018b003038a">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="90" height="30" uuid="aebd9923-633f-48dc-a769-d415de598a69"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[% PNC]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="90" height="20" uuid="64c4b3d2-c6af-4be4-b4c8-8ffa8b47c2c2"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{ScrapSerial_lote}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="85" uuid="f2529984-177c-432c-88eb-acbdb7a4a736">
+						<jr:tableHeader style="table 2_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="84" height="30" uuid="82b6f6ec-3a19-4f26-b7ba-409315f1c611"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle">
+									<font isBold="false"/>
+								</textElement>
+								<text><![CDATA[PNC IDEAL]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:detailCell style="table 2_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="84" height="20" uuid="2224142d-da67-4d25-a0eb-771612c5ced5"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[""+$F{ScrapSerial_image}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<rectangle>
+				<reportElement x="84" y="88" width="355" height="20" uuid="492601f5-52c4-43b0-938d-3c9727c969bb"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="18" y="18" width="100" height="20" uuid="97fb2538-f013-42ae-ab36-d82e1be335b3"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[5. PNC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="84" y="88" width="355" height="20" uuid="4f2610ec-4ce7-4a39-8330-ced6e7d5f088"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[LABORATORIO ETB]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="84" y="49" width="355" height="39" uuid="036f1cb5-612f-475f-8854-904ead408bab"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="84" y="49" width="355" height="39" uuid="3235b1b0-118f-4518-acca-599b0d9758f2"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[COMPORTAMIENTO PNC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="255" width="193" height="20" uuid="2029d838-7da4-4c51-8c0c-dd76d27fb5ab"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[6. MATERIAL SCRAP ]]></text>
+			</staticText>
+			<componentElement>
+				<reportElement key="table 4" style="table 4" x="15" y="306" width="540" height="140" uuid="dab863ab-f852-46fb-a652-e869100a1dad"/>
+				<jr:table xmlns:jr="http://jasperreports.sourceforge.net/jasperreports/components" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports/components http://jasperreports.sourceforge.net/xsd/components.xsd">
+					<datasetRun subDataset="New Dataset 2" uuid="261d14ef-7dea-421b-a499-3568eeb5ca78">
+						<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+					</datasetRun>
+					<jr:column width="103" uuid="218c7301-896c-47f1-b59f-ae9c4977b64d">
+						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="103" height="30" uuid="69abab56-ebc5-4191-9d9e-d945dcbd2df1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[PALLET]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="103" height="20" uuid="d126f33d-1191-4b02-a3c1-870892db6a69"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{Scrap_customer}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="111" uuid="1ece9283-3825-4469-b683-75de82b1b730">
+						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="111" height="30" uuid="513d83dc-bbe2-4c87-9987-f4e96d4c5e11"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[N.º CAJAS/ESTIBA]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="111" height="20" uuid="cef098de-4cf7-4db7-8579-81368d9459b0"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{Scrap_dateEntry}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="103" uuid="61b2d383-05f1-4fda-8e00-8913e9676feb">
+						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="103" height="30" uuid="06b45c45-1614-4ef8-b16a-7f4a54c9ad4a"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[CANTIDAD]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="103" height="20" uuid="8fe0a4a0-2625-4a6a-bf7c-b04cc2bcde60"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{Scrap_dateAudi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="110" uuid="9c512c7b-78ff-450d-9f2e-30adf2b4ea0a">
+						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="110" height="30" uuid="737dd9e0-7498-4695-968d-4508184f27a1"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[MUESTRA]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1"/>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="110" height="20" uuid="e46d4007-4a1b-42f8-9c98-ee1918ebea64"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{Scrap_liderAssurance}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+					<jr:column width="112" uuid="1ad61291-b7ea-4cef-9a75-5e3ceb8054a8">
+						<jr:tableHeader style="table 4_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="112" height="30" uuid="84c927d2-5760-4766-af40-06fb7c122392"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[ESTADO]]></text>
+							</staticText>
+						</jr:tableHeader>
+						<jr:tableFooter style="table 4_TH" height="30" rowSpan="1">
+							<staticText>
+								<reportElement x="0" y="0" width="112" height="30" uuid="8bfba696-c16a-4f33-8b97-f80594f2f349"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<text><![CDATA[TOTAL]]></text>
+							</staticText>
+						</jr:tableFooter>
+						<jr:detailCell style="table 4_TD" height="20" rowSpan="1">
+							<textField>
+								<reportElement x="0" y="0" width="112" height="20" uuid="3240478b-dbc6-47ac-952e-4bceea71640c"/>
+								<textElement textAlignment="Center" verticalAlignment="Middle"/>
+								<textFieldExpression><![CDATA[$F{Scrap_typeAudi}]]></textFieldExpression>
+							</textField>
+						</jr:detailCell>
+					</jr:column>
+				</jr:table>
+			</componentElement>
+			<staticText>
+				<reportElement x="18" y="463" width="100" height="20" uuid="2602a8e1-f5de-4c55-8434-8a707a2e0bd6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[7. CONCLUSION]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="18" y="559" width="193" height="52" uuid="ebcfd717-c603-4de3-b224-d77dc0577ae8"/>
+				<text><![CDATA[ANEXO Serializado y/o cantidades Lote auditado.
+Físico ()
+Magnético () Ruta: _________________]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

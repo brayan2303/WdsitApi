@@ -1,0 +1,236 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="9eb2907b-1d9a-43a6-9133-a9b94f129a77">
+	<property name="ireport.zoom" value="1.6105100000000092"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="544"/>
+	<subDataset name="New Dataset 1" uuid="e19a9b88-902e-4b38-97d5-a83976a86673">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     ScpCertificate."id" AS ScpCertificate_id,
+     ScpCertificate."name" AS ScpCertificate_name,
+     ScpCertificate."description" AS ScpCertificate_description,
+     ScpCertificate."creationDate" AS ScpCertificate_creationDate,
+     ScpCertificate."userId" AS ScpCertificate_userId,
+     ScpCertificate."updateDate" AS ScpCertificate_updateDate,
+     ScpCertificate."updateUserId" AS ScpCertificate_updateUserId,
+     ScpCertificate."active" AS ScpCertificate_active
+FROM
+     "dbo"."ScpCertificate" ScpCertificate]]>
+		</queryString>
+		<field name="ScpCertificate_id" class="java.lang.Integer"/>
+		<field name="ScpCertificate_name" class="java.lang.String"/>
+		<field name="ScpCertificate_description" class="java.lang.String"/>
+		<field name="ScpCertificate_creationDate" class="java.sql.Timestamp"/>
+		<field name="ScpCertificate_userId" class="java.lang.Integer"/>
+		<field name="ScpCertificate_updateDate" class="java.sql.Timestamp"/>
+		<field name="ScpCertificate_updateUserId" class="java.lang.Integer"/>
+		<field name="ScpCertificate_active" class="java.lang.Boolean"/>
+	</subDataset>
+	<parameter name="id" class="java.lang.String"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F:\\APLICACION\\SPRING BOOT\\scrap\\wdsit_api\\src\\main\\java\\net\\woden\\wdsit\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[SELECT sa.codeAudit as nameAudit,   gc.description as customer, sa.creationDate as entry, sa.creationDate as audit, gp.firstName+' '+lastName as name,sa.typeAudit as type, sa.approvedRejected FROM ScpAudit sa
+INNER JOIN ScpAuditPrevious sap ON sap.Id = sa.auditPreviousId
+INNER JOIN GenPerson gp ON gp.id = sa.userId
+INNER JOIN GenCustomer gc ON gc.id = sap.customerId
+WHERE sa.id = $P{id}]]>
+	</queryString>
+	<field name="nameAudit" class="java.lang.String"/>
+	<field name="customer" class="java.lang.String"/>
+	<field name="entry" class="java.lang.String"/>
+	<field name="audit" class="java.lang.String"/>
+	<field name="name" class="java.lang.String"/>
+	<field name="type" class="java.lang.String"/>
+	<field name="approvedRejected" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageHeader>
+		<band height="81" splitType="Stretch">
+			<rectangle>
+				<reportElement x="452" y="20" width="103" height="20" uuid="dcc098b1-de81-466d-9261-085197cc1509"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="452" y="0" width="103" height="20" uuid="754e129d-15c6-4788-a462-3e7b08ae75e3"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="452" y="60" width="103" height="20" uuid="702c8729-268c-4ade-aeae-864a80b41cbb"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="452" y="40" width="103" height="20" uuid="1dcf31e6-c255-4495-ac63-1ac27ac7b710"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="455" y="20" width="100" height="20" uuid="a5c30e76-4627-4667-9ac9-cf53f5fcfda7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Versión: 01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="452" y="0" width="103" height="20" uuid="50d39179-07fd-43d3-a9aa-829b2746603d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Código:SI-ADM-FO-10]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="455" y="40" width="82" height="20" uuid="6726060e-bdef-4c02-9d2c-071e98eab183"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement x="0" y="0" width="130" height="80" uuid="c419a65f-e93e-4282-992a-c3d501b57260"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="134" y="0" width="316" height="80" uuid="4361ba01-8162-4faa-a2f6-da776829413c"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="134" y="0" width="316" height="80" uuid="22c3898f-37fe-4456-a756-ed0b7669ada7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACTA DE ENTREGA ASEGURAMIENTO
+DE CALIDAD]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="455" y="61" width="53" height="20" uuid="160b96e9-6f84-4b19-a233-cd35d65cfced"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+"  / "+"de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="61" width="40" height="20" uuid="c4439372-949a-4b64-8198-1698ad95a47a"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<image>
+				<reportElement x="2" y="3" width="127" height="76" uuid="656598f9-e120-48cd-9659-4659a6e4f478"/>
+				<imageExpression><![CDATA["\\\\172.16.30.25\\wdsit\\SCRAPSER\\IMAGENES\\Woden.png"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="25" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="696" splitType="Stretch">
+			<staticText>
+				<reportElement x="10" y="10" width="185" height="20" uuid="1a23597a-5d5e-4a43-bc59-9c15c1df946d"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[1. REFERENCIA DE LA AUDITORÍA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="93" width="156" height="20" uuid="3f082a7f-0a50-4e48-aff1-6f4370494ac0"/>
+				<text><![CDATA[1.3. Fecha realización Auditoría:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="157" width="100" height="20" uuid="7976401f-0017-4013-87b3-ab5bf5d9f2ae"/>
+				<text><![CDATA[1.5. Tipo de Auditoria:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="126" width="140" height="20" uuid="faac700f-2309-4f99-91e4-211dee01000f"/>
+				<text><![CDATA[1.4. Líder de Aseguramiento:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="61" width="256" height="20" uuid="bfc8d742-17c1-45cc-8f3a-0f65ed5bc571"/>
+				<text><![CDATA[1.2. Fecha Ingreso Woden o entrega al área de calidad:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="191" width="140" height="20" uuid="6fb954a5-e491-4ad6-a4a6-762683f16cd5"/>
+				<text><![CDATA[1.6. Resultado de la Auditoría:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="29" y="30" width="156" height="20" uuid="dfbf514d-bbb5-4b40-b52b-ea38b142bc15"/>
+				<text><![CDATA[1.1. Nombre Proveedor o cliente:]]></text>
+			</staticText>
+			<subreport>
+				<reportElement x="-20" y="378" width="200" height="21" uuid="8c0cfd3f-50cb-4217-a64b-b38796b633e3"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$P{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["\\\\172.16.30.25\\wdsit\\SCRAPSER\\SERVICE\\newReport2.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="563" width="555" height="1" uuid="38cb15a5-4bfe-42e4-9a99-8be84026ccc5"/>
+			</break>
+			<break>
+				<reportElement x="0" y="377" width="592" height="1" uuid="ba7c3120-8108-4b19-884b-96dad16305b8"/>
+			</break>
+			<subreport runToBottom="false">
+				<reportElement x="-20" y="324" width="200" height="14" uuid="c2e0b2e6-a763-4615-81f9-4427e11142e6"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$P{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["\\\\172.16.30.25\\wdsit\\SCRAPSER\\SERVICE\\newReport2_1_1.jasper"]]></subreportExpression>
+			</subreport>
+			<break>
+				<reportElement x="0" y="323" width="555" height="1" uuid="79ecbedf-08b0-4b41-98a1-d4b0922873b6"/>
+			</break>
+			<subreport>
+				<reportElement x="-20" y="540" width="200" height="23" uuid="cade52ba-2b13-4f2f-9e38-5246149cbba1"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$P{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["\\\\172.16.30.25\\wdsit\\SCRAPSER\\SERVICE\\newReport2_1_2.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="-20" y="211" width="200" height="13" uuid="54889d9e-ff98-41c8-bb90-9cda4ea96d32"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["\\\\172.16.30.25\\wdsit\\SCRAPSER\\SERVICE\\newReport3.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="-20" y="564" width="200" height="21" uuid="2a2431c9-f5c1-45a5-ab85-bebe75eb2cf8"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["\\\\172.16.30.25\\wdsit\\SCRAPSER\\SERVICE\\newReport3_1.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="-20" y="311" width="200" height="12" uuid="090ec4a1-b679-4374-adc2-6011acb806c1"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$P{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["\\\\172.16.30.25\\wdsit\\SCRAPSER\\SERVICE\\newReport2_1_3.jasper"]]></subreportExpression>
+			</subreport>
+			<subreport>
+				<reportElement x="-20" y="666" width="200" height="30" uuid="e274c8b1-6383-4038-94a0-afe565a2a032"/>
+				<subreportParameter name="id">
+					<subreportParameterExpression><![CDATA[$P{id}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["\\\\172.16.30.25\\wdsit\\SCRAPSER\\SERVICE\\newReport2_1_1_1_1.jasper"]]></subreportExpression>
+			</subreport>
+			<textField>
+				<reportElement x="352" y="10" width="185" height="20" uuid="0b8762fe-6733-429c-b6ed-af9dd786d4f4"/>
+				<textFieldExpression><![CDATA[$F{nameAudit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="30" width="122" height="20" uuid="199e8029-e84f-48b8-97ef-bcc870ee63d3"/>
+				<textFieldExpression><![CDATA[$F{customer}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="285" y="61" width="145" height="20" uuid="8d00d5f9-467d-40e0-ac8a-fa62f3523871"/>
+				<textFieldExpression><![CDATA[$F{audit}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="185" y="93" width="157" height="20" uuid="a9335d0f-e65c-4730-8d1c-5c9b19c44541"/>
+				<textFieldExpression><![CDATA[$F{entry}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="126" width="232" height="20" uuid="be2fda84-d910-46b8-ae6d-f5347b4fe569"/>
+				<textFieldExpression><![CDATA[$F{name}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="129" y="157" width="239" height="20" uuid="27eeedee-7e5c-41c6-9102-14215b046072"/>
+				<textFieldExpression><![CDATA[$F{type}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="169" y="191" width="183" height="20" uuid="a595e98d-3ae9-4749-95a7-4c02881eb16c"/>
+				<textFieldExpression><![CDATA[$F{approvedRejected}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+</jasperReport>

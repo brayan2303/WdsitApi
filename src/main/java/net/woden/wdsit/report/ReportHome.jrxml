@@ -1,0 +1,134 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="ReportHome" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="f5900139-9c28-44d7-a979-e43415464302">
+	<property name="com.jaspersoft.studio.data.defaultdataadapter" value="One Empty Record"/>
+	<queryString>
+		<![CDATA[]]>
+	</queryString>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="120" splitType="Stretch">
+			<rectangle>
+				<reportElement x="0" y="0" width="555" height="80" uuid="3b99cfb1-03b9-4f8e-9a0d-c891f5e15632"/>
+				<graphicElement>
+					<pen lineStyle="Double" lineColor="#8C8C8C"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="2" y="2" width="119" height="75" uuid="9a1dc475-c63c-4aca-9259-f44771ef0255"/>
+				<graphicElement>
+					<pen lineStyle="Solid" lineColor="#A8A8A8"/>
+				</graphicElement>
+			</rectangle>
+			<image>
+				<reportElement x="20" y="19" width="80" height="40" uuid="758aaf93-0601-4de1-aee8-d54d14dc60db"/>
+				<imageExpression><![CDATA["https://www.woden.com.co/woden-logo.png"]]></imageExpression>
+			</image>
+			<rectangle>
+				<reportElement x="125" y="2" width="306" height="75" uuid="447b9c25-27fa-4587-8e5c-6efdaa498014"/>
+				<graphicElement>
+					<pen lineColor="#9C9C9C"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="435" y="2" width="115" height="15" uuid="7d1c87dc-5651-4966-b3da-5a13f8b17efe"/>
+				<graphicElement>
+					<pen lineColor="#999999"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="435" y="21" width="115" height="17" uuid="93f42b5d-6a2e-40bf-bbfb-cbc18c2bdcf0"/>
+				<graphicElement>
+					<pen lineColor="#999999"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement x="435" y="42" width="115" height="17" uuid="b870501c-4939-42de-b186-c5f540807f63"/>
+				<graphicElement>
+					<pen lineColor="#999999"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="125" y="2" width="306" height="74" uuid="5f79d1d8-3c8c-45de-af21-3210aeea165b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Tahoma" size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACTA DE ENTREGA ASEGURAMIENTO DE CALIDAD]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="2" width="115" height="14" uuid="7901a49b-2f67-492b-9029-ba37ceebc3d7"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="tohama
+" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Código: SI-ADM-FO-10]]></text>
+			</staticText>
+			<rectangle>
+				<reportElement x="435" y="62" width="115" height="15" uuid="22a83563-0c13-405f-b93a-3debb2dd77db"/>
+				<graphicElement>
+					<pen lineColor="#999999"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement x="435" y="21" width="115" height="17" uuid="1e7f9a6e-253c-4e2f-8ecb-170f1a82b384"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tohama" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Versión: 01]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="435" y="43" width="115" height="15" uuid="d03582f6-dad6-4487-86b5-f926d1e478b1"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Tohama
+" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ Fecha Emisión: 14-02-2018]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="435" y="62" width="65" height="15" uuid="928a8ddd-2fbe-48cc-a085-66e7b870b1d5"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA["Pagina " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="500" y="62" width="50" height="15" uuid="17f9a579-ee1f-4cfe-b940-56302a5488cd"/>
+				<textElement textAlignment="Left" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" de " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+		</band>
+	</title>
+	<pageHeader>
+		<band height="35" splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band height="92" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="59" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band height="45" splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="67" splitType="Stretch">
+			<staticText>
+				<reportElement x="2" y="0" width="553" height="67" uuid="ffb4d249-6b55-4a62-b5b9-560a07c3c51b"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom"/>
+				<text><![CDATA[ESTE DOCUMENTO ES DE USO EXCLUSIVO DE WODEN COLOMBIA SAS, QUEDA ESTRICTAMENTE PROHIBIDA SU REPRODUCCION TOTAL O PARCIAL SIN AUTORIZACIÓN PREVIA]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="240" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="555" height="50" uuid="e73e1c82-f4a7-4394-bc27-e298c28528b5"/>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["ReportReference.jrxml"]]></subreportExpression>
+			</subreport>
+		</band>
+	</summary>
+</jasperReport>

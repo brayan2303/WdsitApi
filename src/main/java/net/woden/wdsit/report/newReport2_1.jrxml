@@ -1,0 +1,137 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f14f597-a68e-4622-b8b3-a6a6f6fbc1cd">
+	<property name="ireport.zoom" value="1.0"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="96e590f3-07e3-4c1a-ba02-9bdb30073353"/>
+	<parameter name="id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[DECLARE @PNC INT
+SELECT @PNC = COUNT(Serial) FROM ScpAuditSerial WHERE palletId=$P{id} AND stateMotif IS NOT NULL
+
+DECLARE @XPNC FLOAT
+SELECT @XPNC = (( SELECT COUNT(Serial) FROM ScpAuditSerial WHERE palletId=$P{id} ) * (SELECT COUNT(s.Serial) FROM ScpAuditPreviousSerial s WHERE s.auditPreviousId=( SELECT auditPreviousId FROM ScpAudit WHERE id=$P{id} )) )/100
+
+SELECT q.show AS Muestreo,@PNC AS PNC, @XPNC AS '% PNC', q.noveltyAccepted AS 'PNC IDEAL'  FROM ScpAudit a
+INNER JOIN ScpAuditLevelRuleQuantity q ON q.Id=a.levelRuleQuantityId
+WHERE a.Id=$P{id}]]>
+	</queryString>
+	<field name="Muestreo" class="java.lang.Integer"/>
+	<field name="PNC" class="java.lang.Integer"/>
+	<field name="% PNC" class="java.lang.Double"/>
+	<field name="PNC IDEAL" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageFooter>
+		<band height="206" splitType="Stretch">
+			<rectangle>
+				<reportElement x="65" y="43" width="400" height="46" uuid="d561bf6f-85dd-4a5e-8d44-31210554a7a7"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="65" y="89" width="400" height="29" uuid="ce8b80f9-95d7-4c5c-92c5-35f0c15dd927"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="65" y="118" width="100" height="33" uuid="2fdf116f-0b4b-4570-b53e-e38c076257de"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="265" y="118" width="100" height="33" uuid="3c7f58a9-3c9f-4a19-ba38-844d0f1ee3c5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="165" y="118" width="100" height="33" uuid="4aaa4b96-fad6-403a-aa01-ed5cc1656584"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="365" y="118" width="100" height="33" uuid="bcafd607-76d2-48a9-8191-a5e05ef3b172"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="365" y="151" width="100" height="33" uuid="6b1fb661-c489-40a1-b325-13fa9b04b22f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="265" y="151" width="100" height="33" uuid="b3edcf23-18c5-4b91-9227-c1c2700730e8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="165" y="151" width="100" height="33" uuid="51e43b25-bef0-454c-9c46-64e759eb3942"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="65" y="151" width="100" height="33" uuid="0ceae366-fe59-48a0-9ffd-05f887ae7764"/>
+			</rectangle>
+			<textField>
+				<reportElement x="65" y="151" width="100" height="33" uuid="120834c7-c0d9-4664-ba17-5e3ef52a2396"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Muestreo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="151" width="100" height="33" uuid="23f8b2eb-4d9e-4f0a-9018-52c6fb2b59df"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="151" width="100" height="33" uuid="6fd0819a-ad64-4eaf-a41c-53c93d5b3625"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{% PNC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="151" width="100" height="33" uuid="71a68638-fa35-421a-852f-60fc7f15b796"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{PNC IDEAL}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="65" y="118" width="100" height="33" uuid="dfa0ee84-303d-4bcd-8d52-ad8f3799b595"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[MUESTREO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="118" width="100" height="33" uuid="c7da6b82-c721-4a9a-af60-6fa08e9b6ae1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PNC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="265" y="118" width="100" height="33" uuid="e6d67509-8556-426d-a2e3-7515ae10b358"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[% PNC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="118" width="100" height="33" uuid="20e67030-c230-4bfe-979a-7f72ddf4502d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PNC IDEAL]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="43" width="400" height="46" uuid="17387fb0-55d3-46c9-b82d-ce5944510033"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[COMPORTAMIENTO PNC]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="89" width="400" height="29" uuid="11ce3537-f73a-4bfb-8a3f-09d301a576db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[LABORATORIO ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="14" y="11" width="185" height="20" uuid="86278a20-7aa9-459d-876f-5faea7054aab"/>
+				<textElement>
+					<font isBold="false"/>
+				</textElement>
+				<text><![CDATA[5. PNC]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

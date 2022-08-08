@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="fc9a1764-3509-4426-8644-3944c4d10818">
+	<property name="ireport.zoom" value="6.115909044841463"/>
+	<property name="ireport.x" value="145"/>
+	<property name="ireport.y" value="0"/>
+	<queryString>
+		<![CDATA[SELECT
+     ScpTextAudi."id" AS ScpTextAudi_id,
+     ScpTextAudi."name" AS ScpTextAudi_name,
+     ScpTextAudi."description" AS ScpTextAudi_description,
+     ScpTextAudi."creationDate" AS ScpTextAudi_creationDate,
+     ScpTextAudi."userIdCreation" AS ScpTextAudi_userIdCreation,
+     ScpTextAudi."updateDate" AS ScpTextAudi_updateDate,
+     ScpTextAudi."userIdUpdate" AS ScpTextAudi_userIdUpdate,
+     ScpTextAudi."active" AS ScpTextAudi_active
+FROM
+     "dbo"."ScpTextAudi" ScpTextAudi]]>
+	</queryString>
+	<field name="ScpTextAudi_id" class="java.lang.Integer"/>
+	<field name="ScpTextAudi_name" class="java.lang.String"/>
+	<field name="ScpTextAudi_description" class="java.lang.String"/>
+	<field name="ScpTextAudi_creationDate" class="java.sql.Timestamp"/>
+	<field name="ScpTextAudi_userIdCreation" class="java.lang.Integer"/>
+	<field name="ScpTextAudi_updateDate" class="java.sql.Timestamp"/>
+	<field name="ScpTextAudi_userIdUpdate" class="java.lang.Integer"/>
+	<field name="ScpTextAudi_active" class="java.lang.Boolean"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageFooter>
+		<band height="249" splitType="Stretch">
+			<textField>
+				<reportElement x="37" y="45" width="492" height="204" uuid="eb1610b1-6aac-4377-a48e-567130497d95"/>
+				<textFieldExpression><![CDATA[$F{ScpTextAudi_description}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="7" y="15" width="100" height="20" uuid="f422ad52-fb66-43a1-8464-716e0db7d42b"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[7. CONCLUSIONES]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+</jasperReport>

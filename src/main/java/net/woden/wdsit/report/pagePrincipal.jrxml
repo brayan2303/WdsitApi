@@ -1,0 +1,321 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report1" language="groovy" pageWidth="595" pageHeight="842" whenNoDataType="AllSectionsNoDetail" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="5ac10f29-b29a-4f31-9d05-cbb73e2121fd">
+	<property name="ireport.zoom" value="1.3310000000000173"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="1152"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="New Dataset 1" uuid="66b9fae7-0271-4c15-a4a3-e952f0c776c0">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     ScrapSerial."id" AS ScrapSerial_id,
+     ScrapSerial."serial" AS ScrapSerial_serial,
+     ScrapSerial."lote" AS ScrapSerial_lote,
+     ScrapSerial."sample" AS ScrapSerial_sample,
+     ScrapSerial."status" AS ScrapSerial_status,
+     ScrapSerial."image" AS ScrapSerial_image
+FROM
+     "dbo"."ScrapSerial" ScrapSerial]]>
+		</queryString>
+		<field name="ScrapSerial_id" class="java.lang.Integer"/>
+		<field name="ScrapSerial_serial" class="java.lang.String"/>
+		<field name="ScrapSerial_lote" class="java.lang.String"/>
+		<field name="ScrapSerial_sample" class="java.lang.String"/>
+		<field name="ScrapSerial_status" class="java.lang.String"/>
+		<field name="ScrapSerial_image" class="java.lang.Object"/>
+	</subDataset>
+	<subDataset name="New Dataset 2" uuid="b89fd497-8700-4ded-959c-62e12309b450">
+		<queryString language="SQL">
+			<![CDATA[SELECT
+     ScpCertificate."id" AS ScpCertificate_id,
+     ScpCertificate."name" AS ScpCertificate_name,
+     ScpCertificate."description" AS ScpCertificate_description,
+     ScpCertificate."creationDate" AS ScpCertificate_creationDate,
+     ScpCertificate."userId" AS ScpCertificate_userId,
+     ScpCertificate."updateDate" AS ScpCertificate_updateDate,
+     ScpCertificate."updateUserId" AS ScpCertificate_updateUserId,
+     ScpCertificate."active" AS ScpCertificate_active
+FROM
+     "dbo"."ScpCertificate" ScpCertificate]]>
+		</queryString>
+		<field name="ScpCertificate_id" class="java.lang.Integer"/>
+		<field name="ScpCertificate_name" class="java.lang.String"/>
+		<field name="ScpCertificate_description" class="java.lang.String"/>
+		<field name="ScpCertificate_creationDate" class="java.sql.Timestamp"/>
+		<field name="ScpCertificate_userId" class="java.lang.Integer"/>
+		<field name="ScpCertificate_updateDate" class="java.sql.Timestamp"/>
+		<field name="ScpCertificate_updateUserId" class="java.lang.Integer"/>
+		<field name="ScpCertificate_active" class="java.lang.Boolean"/>
+	</subDataset>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F:\\APLICACION\\SPRING BOOT\\wdsit_api\\src\\main\\java\\net\\woden\\wdsit\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     ScpAudit."Id" AS ScpAudit_Id,
+     ScpAudit."codeAudit" AS ScpAudit_codeAudit,
+     ScpAudit."state" AS ScpAudit_state,
+     ScpAudit."stateMotifId" AS ScpAudit_stateMotifId,
+     ScpAudit."openPallet" AS ScpAudit_openPallet,
+     ScpAudit."typeAudit" AS ScpAudit_typeAudit,
+     ScpAudit."levelRuleId" AS ScpAudit_levelRuleId,
+     ScpAudit."levelRuleQuantityId" AS ScpAudit_levelRuleQuantityId,
+     ScpAudit."userId" AS ScpAudit_userId,
+     ScpAudit."creationDate" AS ScpAudit_creationDate,
+     ScpAudit."active" AS ScpAudit_active,
+     ScpAudit."auditPreviousId" AS ScpAudit_auditPreviousId,
+     GenPerson."id" AS GenPerson_id,
+     GenPerson."identification" AS GenPerson_identification,
+     GenPerson."firstName" AS GenPerson_firstName,
+     GenPerson."lastName" AS GenPerson_lastName,
+     GenPerson."userName" AS GenPerson_userName,
+     GenPerson."password" AS GenPerson_password,
+     GenPerson."mail" AS GenPerson_mail,
+     GenPerson."creationDate" AS GenPerson_creationDate,
+     GenPerson."loginDate" AS GenPerson_loginDate,
+     GenPerson."centerCostId" AS GenPerson_centerCostId,
+     GenPerson."positionId" AS GenPerson_positionId,
+     GenPerson."cityId" AS GenPerson_cityId,
+     GenPerson."active" AS GenPerson_active,
+     ScpAuditPrevious."Id" AS ScpAuditPrevious_Id,
+     ScpAuditPrevious."name" AS ScpAuditPrevious_name,
+     ScpAuditPrevious."customerId" AS ScpAuditPrevious_customerId,
+     ScpAuditPrevious."userId" AS ScpAuditPrevious_userId,
+     ScpAuditPrevious."creationDate" AS ScpAuditPrevious_creationDate,
+     ScpAuditPrevious."active" AS ScpAuditPrevious_active,
+     ScpAuditPrevious."state" AS ScpAuditPrevious_state,
+     GenCustomer."id" AS GenCustomer_id,
+     GenCustomer."code" AS GenCustomer_code,
+     GenCustomer."description" AS GenCustomer_description,
+     GenCustomer."incomeActive" AS GenCustomer_incomeActive,
+     GenCustomer."active" AS GenCustomer_active,
+     ScpAuditStateType."Id" AS ScpAuditStateType_Id,
+     ScpAuditStateType."code" AS ScpAuditStateType_code,
+     ScpAuditStateType."description" AS ScpAuditStateType_description,
+     ScpAuditStateType."userId" AS ScpAuditStateType_userId,
+     ScpAuditStateType."creationDate" AS ScpAuditStateType_creationDate,
+     ScpAuditStateType."active" AS ScpAuditStateType_active
+FROM
+     "dbo"."ScpAudit" ScpAudit INNER JOIN "dbo"."GenPerson" GenPerson ON ScpAudit."userId" = GenPerson."id"
+     INNER JOIN "dbo"."ScpAuditPrevious" ScpAuditPrevious ON ScpAudit."auditPreviousId" = ScpAuditPrevious."Id"
+     INNER JOIN "dbo"."ScpAuditStateType" ScpAuditStateType ON ScpAudit."typeAudit" = ScpAuditStateType."code"
+     INNER JOIN "dbo"."GenCustomer" GenCustomer ON ScpAuditPrevious."customerId" = GenCustomer."id"]]>
+	</queryString>
+	<field name="ScpAudit_Id" class="java.lang.Integer"/>
+	<field name="ScpAudit_codeAudit" class="java.lang.String"/>
+	<field name="ScpAudit_state" class="java.lang.String"/>
+	<field name="ScpAudit_stateMotifId" class="java.lang.Integer"/>
+	<field name="ScpAudit_openPallet" class="java.lang.Boolean"/>
+	<field name="ScpAudit_typeAudit" class="java.lang.String"/>
+	<field name="ScpAudit_levelRuleId" class="java.lang.Integer"/>
+	<field name="ScpAudit_levelRuleQuantityId" class="java.lang.Integer"/>
+	<field name="ScpAudit_userId" class="java.lang.Integer"/>
+	<field name="ScpAudit_creationDate" class="java.lang.String"/>
+	<field name="ScpAudit_active" class="java.lang.Boolean"/>
+	<field name="ScpAudit_auditPreviousId" class="java.lang.Integer"/>
+	<field name="GenPerson_id" class="java.lang.Integer"/>
+	<field name="GenPerson_identification" class="java.lang.Long"/>
+	<field name="GenPerson_firstName" class="java.lang.String"/>
+	<field name="GenPerson_lastName" class="java.lang.String"/>
+	<field name="GenPerson_userName" class="java.lang.String"/>
+	<field name="GenPerson_password" class="java.lang.String"/>
+	<field name="GenPerson_mail" class="java.lang.String"/>
+	<field name="GenPerson_creationDate" class="java.sql.Date"/>
+	<field name="GenPerson_loginDate" class="java.sql.Date"/>
+	<field name="GenPerson_centerCostId" class="java.lang.Integer"/>
+	<field name="GenPerson_positionId" class="java.lang.Integer"/>
+	<field name="GenPerson_cityId" class="java.lang.Integer"/>
+	<field name="GenPerson_active" class="java.lang.Boolean"/>
+	<field name="ScpAuditPrevious_Id" class="java.lang.Integer"/>
+	<field name="ScpAuditPrevious_name" class="java.lang.String"/>
+	<field name="ScpAuditPrevious_customerId" class="java.lang.Integer"/>
+	<field name="ScpAuditPrevious_userId" class="java.lang.Integer"/>
+	<field name="ScpAuditPrevious_creationDate" class="java.lang.String"/>
+	<field name="ScpAuditPrevious_active" class="java.lang.Boolean"/>
+	<field name="ScpAuditPrevious_state" class="java.lang.String"/>
+	<field name="GenCustomer_id" class="java.lang.Integer"/>
+	<field name="GenCustomer_code" class="java.lang.String"/>
+	<field name="GenCustomer_description" class="java.lang.String"/>
+	<field name="GenCustomer_incomeActive" class="java.lang.Boolean"/>
+	<field name="GenCustomer_active" class="java.lang.Boolean"/>
+	<field name="ScpAuditStateType_Id" class="java.lang.Integer"/>
+	<field name="ScpAuditStateType_code" class="java.lang.String"/>
+	<field name="ScpAuditStateType_description" class="java.lang.String"/>
+	<field name="ScpAuditStateType_userId" class="java.lang.Integer"/>
+	<field name="ScpAuditStateType_creationDate" class="java.lang.String"/>
+	<field name="ScpAuditStateType_active" class="java.lang.Boolean"/>
+	<group name="Page3">
+		<groupExpression><![CDATA[$F{Scrap_id}]]></groupExpression>
+		<groupHeader>
+			<band height="571">
+				<staticText>
+					<reportElement x="34" y="29" width="156" height="20" uuid="afe19686-9e7d-4db9-b1c9-054fa2996710"/>
+					<text><![CDATA[1.1. Nombre Proveedor o cliente:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="34" y="60" width="256" height="20" uuid="1f36a275-a4d5-4f61-aa43-9de34ca65a69"/>
+					<text><![CDATA[1.2. Fecha Ingreso Woden o entrega al área de calidad:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="34" y="92" width="156" height="20" uuid="c7d11d4d-b792-4b33-97c6-bd70c72d0ad9"/>
+					<text><![CDATA[1.3. Fecha realización Auditoría:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="34" y="125" width="140" height="20" uuid="6091df42-69d2-4d60-80ed-a3bd1349e1b8"/>
+					<text><![CDATA[1.4. Líder de Aseguramiento:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="34" y="156" width="100" height="20" uuid="299a483f-aeda-4047-9578-a47244a2283f"/>
+					<text><![CDATA[1.5. Tipo de Auditoria:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="34" y="190" width="140" height="20" uuid="d9a62ca5-dc60-43fe-b3f8-1f5726be2f43"/>
+					<text><![CDATA[1.6. Resultado de la Auditoría:]]></text>
+				</staticText>
+				<staticText>
+					<reportElement x="15" y="9" width="185" height="20" uuid="ea17d0d7-9340-4b14-96f0-3a6ffad678e3"/>
+					<textElement>
+						<font isBold="true"/>
+					</textElement>
+					<text><![CDATA[1. REFERENCIA DE LA AUDITORÍA]]></text>
+				</staticText>
+				<textField>
+					<reportElement x="190" y="29" width="164" height="20" uuid="d852a8ed-d61b-4a25-8743-ca7012078667"/>
+					<textFieldExpression><![CDATA[$F{GenCustomer_description}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="324" y="125" width="146" height="20" uuid="b9446488-7065-46f5-899e-15dcb712ebe0"/>
+					<textFieldExpression><![CDATA[$F{GenPerson_lastName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="174" y="125" width="132" height="20" uuid="dadcf989-ae15-4e93-bcc5-2a88d56512b0"/>
+					<textFieldExpression><![CDATA[$F{GenPerson_firstName}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="190" y="92" width="164" height="20" uuid="0a6128d3-92aa-4888-8612-29109c3ae885"/>
+					<textFieldExpression><![CDATA[$F{ScpAudit_creationDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="291" y="60" width="164" height="20" uuid="962d5d25-a0f3-4508-8332-2ccd3ba40490"/>
+					<textFieldExpression><![CDATA[$F{ScpAudit_creationDate}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="134" y="156" width="220" height="20" uuid="650c5fee-6acc-4fbe-a68a-53dea14babf1"/>
+					<textFieldExpression><![CDATA[$F{ScpAuditStateType_description}]]></textFieldExpression>
+				</textField>
+				<textField>
+					<reportElement x="373" y="9" width="115" height="20" uuid="9984dbb2-1650-4b18-bd26-0fdddc51e0fc"/>
+					<textFieldExpression><![CDATA[$F{ScpAudit_codeAudit}]]></textFieldExpression>
+				</textField>
+			</band>
+		</groupHeader>
+		<groupFooter>
+			<band height="304"/>
+		</groupFooter>
+	</group>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band splitType="Stretch"/>
+	</title>
+	<pageHeader>
+		<band height="80" splitType="Stretch">
+			<rectangle>
+				<reportElement x="452" y="0" width="103" height="20" uuid="790c764b-3544-46f8-b54a-5b71b61587e0"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="452" y="20" width="103" height="20" uuid="9938d19a-4915-4f65-81b0-d7af9e788922"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="452" y="40" width="103" height="20" uuid="fa072297-2dc5-44fa-8316-37c4c01d7178"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="452" y="60" width="103" height="20" uuid="a0296d7c-4190-4b14-b24a-c104222abf7f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="0" y="0" width="132" height="80" uuid="c432d2f5-b43f-43ae-9af2-4a224ed798a6"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="134" y="0" width="316" height="80" uuid="2ed5af45-3bed-40d4-80b5-2ae5f0df0915"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="134" y="0" width="316" height="80" uuid="96df8d03-45f6-41d0-88d0-5512183d1095"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="14" isBold="true"/>
+				</textElement>
+				<text><![CDATA[ACTA DE ENTREGA ASEGURAMIENTO
+DE CALIDAD]]></text>
+			</staticText>
+			<textField pattern="MM/dd/yyyy">
+				<reportElement x="460" y="40" width="82" height="20" uuid="a3fc2105-74d1-4707-928a-46fe4662a8af"/>
+				<textElement verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[new java.util.Date()]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="452" y="60" width="63" height="20" uuid="09f9a3e5-c990-46b9-8031-bb9270c22966"/>
+				<textElement textAlignment="Right"/>
+				<textFieldExpression><![CDATA["Pagina "+$V{PAGE_NUMBER}+"de"]]></textFieldExpression>
+			</textField>
+			<textField evaluationTime="Report">
+				<reportElement x="515" y="60" width="40" height="20" uuid="890d03b3-4772-4741-9dd5-78a96378704c"/>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<staticText>
+				<reportElement x="452" y="0" width="103" height="20" uuid="7ab4ac59-0fde-41be-a77e-a4f8d2b2deb9"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[Código:SI-ADM-FO-10]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="455" y="20" width="100" height="20" uuid="0699f532-9986-4c3a-88ee-9c6e56bc9fb7"/>
+				<textElement verticalAlignment="Middle"/>
+				<text><![CDATA[Versión: 01]]></text>
+			</staticText>
+			<image>
+				<reportElement x="10" y="4" width="122" height="72" uuid="9b78de35-1de5-424f-96a3-496d41951433"/>
+				<imageExpression><![CDATA["R:\\logo.jpg"]]></imageExpression>
+			</image>
+		</band>
+	</pageHeader>
+	<columnHeader>
+		<band height="30" splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="62" splitType="Stretch"/>
+	</detail>
+	<columnFooter>
+		<band splitType="Stretch"/>
+	</columnFooter>
+	<pageFooter>
+		<band height="54" splitType="Stretch">
+			<staticText>
+				<reportElement x="0" y="0" width="555" height="54" uuid="60e054bd-9594-4a89-b326-453374ba9f7e"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ESTE DOCUMENTO ES DE USO EXCLUSIVO DE WODEN COLOMBIA SAS, QUEDA ESTRICTAMENTE PROHIBIDA SU
+REPRODUCCION TOTAL O PARCIAL SIN AUTORIZACIÓN PREVIA.]]></text>
+			</staticText>
+		</band>
+	</pageFooter>
+	<summary>
+		<band height="126" splitType="Stretch"/>
+	</summary>
+</jasperReport>

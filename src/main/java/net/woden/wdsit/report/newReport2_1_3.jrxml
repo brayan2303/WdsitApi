@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f14f597-a68e-4622-b8b3-a6a6f6fbc1cd">
+	<property name="ireport.zoom" value="4.177248169415656"/>
+	<property name="ireport.x" value="70"/>
+	<property name="ireport.y" value="12"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="96e590f3-07e3-4c1a-ba02-9bdb30073353"/>
+	<parameter name="id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[--CONSOLIDADO AUDITORIA
+SELECT DISTINCT p.pallet AS Consecutivos,'1' AS Lote, (CASE 
+WHEN w.pallet IS NOT NULL THEN 
+	CONCAT('', (CASE WHEN s.Serial IS NULL THEN 'SI' ELSE 'NO' END) )
+ELSE
+'SI'
+END) AS Muestra, (CASE 
+WHEN w.pallet IS NOT NULL THEN 
+	CONCAT('', (CASE WHEN s.Serial IS NULL THEN ' ' ELSE s.state END) )
+ELSE
+' '
+END) AS Estado FROM ScpAuditPallet p
+INNER JOIN ScpAudit a ON p.auditId=a.id
+LEFT JOIN ScpCrossingWms w ON w.pallet=p.pallet
+LEFT JOIN ScpAuditSerial s ON s.serial=w.serial
+WHERE p.auditId=$P{id}]]>
+	</queryString>
+	<field name="Consecutivos" class="java.lang.String"/>
+	<field name="Lote" class="java.lang.String"/>
+	<field name="Muestra" class="java.lang.String"/>
+	<field name="Estado" class="java.lang.String"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<pageFooter>
+		<band height="206" splitType="Stretch">
+			<rectangle>
+				<reportElement x="65" y="89" width="400" height="29" uuid="ce8b80f9-95d7-4c5c-92c5-35f0c15dd927"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="65" y="118" width="100" height="33" uuid="2fdf116f-0b4b-4570-b53e-e38c076257de"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="265" y="118" width="100" height="33" uuid="3c7f58a9-3c9f-4a19-ba38-844d0f1ee3c5"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="165" y="118" width="100" height="33" uuid="4aaa4b96-fad6-403a-aa01-ed5cc1656584"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="365" y="118" width="100" height="33" uuid="bcafd607-76d2-48a9-8191-a5e05ef3b172"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="365" y="151" width="100" height="33" uuid="6b1fb661-c489-40a1-b325-13fa9b04b22f"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="265" y="151" width="100" height="33" uuid="b3edcf23-18c5-4b91-9227-c1c2700730e8"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="165" y="151" width="100" height="33" uuid="51e43b25-bef0-454c-9c46-64e759eb3942"/>
+			</rectangle>
+			<rectangle>
+				<reportElement x="65" y="151" width="100" height="33" uuid="0ceae366-fe59-48a0-9ffd-05f887ae7764"/>
+			</rectangle>
+			<staticText>
+				<reportElement x="65" y="118" width="100" height="33" uuid="dfa0ee84-303d-4bcd-8d52-ad8f3799b595"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[CONSECUTIVOS]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="165" y="118" width="100" height="33" uuid="c7da6b82-c721-4a9a-af60-6fa08e9b6ae1"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[LOTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="265" y="118" width="100" height="33" uuid="e6d67509-8556-426d-a2e3-7515ae10b358"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[MUESTRA]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="365" y="118" width="100" height="33" uuid="20e67030-c230-4bfe-979a-7f72ddf4502d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[ESTADO]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="65" y="89" width="400" height="29" uuid="11ce3537-f73a-4bfb-8a3f-09d301a576db"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<text><![CDATA[PROVEEDOR O CLIENTE]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="10" y="11" width="185" height="20" uuid="86278a20-7aa9-459d-876f-5faea7054aab"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[3. CONSOLIDADO DE LA AUDITORIA]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="65" y="151" width="100" height="33" uuid="aed8881f-1ab4-4d17-8747-1cc6cc2dc083"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Consecutivos}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="165" y="151" width="100" height="33" uuid="e14861b3-1a9d-47a0-9273-244632896c9b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Lote}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="265" y="151" width="100" height="33" uuid="885f691a-c58c-4b41-bbc8-a37706a08d6a"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Muestra}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="365" y="151" width="100" height="33" uuid="cd148c31-dda6-4478-b606-57b663970a2b"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{Estado}]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

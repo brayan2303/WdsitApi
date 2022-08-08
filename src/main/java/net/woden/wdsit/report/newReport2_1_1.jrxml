@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="595" pageHeight="842" columnWidth="535" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="4f14f597-a68e-4622-b8b3-a6a6f6fbc1cd">
+	<property name="ireport.zoom" value="1.3310000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<style name="table">
+		<box>
+			<pen lineWidth="1.0" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TH" mode="Opaque" backcolor="#F0F8FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_CH" mode="Opaque" backcolor="#BFE1FF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<style name="table_TD" mode="Opaque" backcolor="#FFFFFF">
+		<box>
+			<pen lineWidth="0.5" lineColor="#000000"/>
+		</box>
+	</style>
+	<subDataset name="Table Dataset 1" uuid="96e590f3-07e3-4c1a-ba02-9bdb30073353"/>
+	<parameter name="id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     ScpSerialImagen."id" AS ScpSerialImagen_id,
+     ScpSerialImagen."image" AS ScpSerialImagen_image,
+     ScpSerialImagen."serial" AS ScpSerialImagen_serial,
+     ScpSerialImagen."auditId" AS ScpSerialImagen_auditId
+FROM
+     "dbo"."ScpSerialImagen" ScpSerialImagen
+	
+WHERE 
+   
+ScpSerialImagen."auditId" = $P{id}]]>
+	</queryString>
+	<field name="ScpSerialImagen_id" class="java.lang.Integer"/>
+	<field name="ScpSerialImagen_image" class="java.io.InputStream"/>
+	<field name="ScpSerialImagen_serial" class="java.lang.String"/>
+	<field name="ScpSerialImagen_auditId" class="java.lang.Integer"/>
+	<background>
+		<band splitType="Stretch"/>
+	</background>
+	<title>
+		<band height="50">
+			<staticText>
+				<reportElement x="7" y="11" width="161" height="20" uuid="df270dc9-4f2b-41ca-b8bb-40de09eafbf6"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[4. Evidencias Fotográficas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="22" y="31" width="146" height="17" uuid="edb3ba86-0517-4cf6-aad4-07861283e61d"/>
+				<text><![CDATA[En caso de que se requiera:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<detail>
+		<band height="253">
+			<image scaleImage="FillFrame" isLazy="true" onErrorType="Blank">
+				<reportElement x="22" y="58" width="274" height="129" uuid="a95398ca-dc65-4254-86b0-e96d926ed188"/>
+				<imageExpression><![CDATA[$F{ScpSerialImagen_image}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="22" y="18" width="175" height="20" uuid="3e33a883-da08-45e6-861a-cc5cea1e5893"/>
+				<textFieldExpression><![CDATA[$F{ScpSerialImagen_serial}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

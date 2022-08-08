@@ -1,0 +1,111 @@
+/*
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Class.java to edit this template
+ */
+package net.woden.wdsit.controller;
+
+import net.woden.wdsit.entity.InvMasterSerialEntity;
+import net.woden.wdsit.model.ResponseModel;
+import net.woden.wdsit.service.InvMasterSerialService;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+/**
+ *
+ * @author b.algecira
+ */
+@RestController
+@RequestMapping("InvMasterSerialS/")
+public class InvMasterSerialController {
+
+    @Autowired
+    private InvMasterSerialService InvMasterSerialS;
+
+    @PostMapping(value = "create/{userId}")
+    public ResponseEntity create(@RequestBody InvMasterSerialEntity i, @PathVariable int userId) {
+        ResponseModel response = this.InvMasterSerialS.create(i, userId);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @DeleteMapping(value = "delete/{id}") //servicio eliminar
+    public ResponseEntity delete(@PathVariable int id) {
+        ResponseModel response = this.InvMasterSerialS.delete(id);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @GetMapping(value = "list/{palletId}")
+    public ResponseEntity list(@PathVariable int palletId) {
+        ResponseModel response = this.InvMasterSerialS.list(palletId);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @GetMapping(value = "validationRR/{serial}/{codigoSap}")
+    public ResponseEntity validationRR(@PathVariable String serial, @PathVariable String codigoSap) {
+        ResponseModel response = this.InvMasterSerialS.validationRR(serial, codigoSap);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @GetMapping(value = "validationRRSerial/{serial}")
+    public ResponseEntity validationRRSerial(@PathVariable String serial) {
+        ResponseModel response = this.InvMasterSerialS.validationRRSerial(serial);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @GetMapping(value = "validationMissing/{serial}")
+    public ResponseEntity validationMissing(@PathVariable String serial) {
+        ResponseModel response = this.InvMasterSerialS.validationMissing(serial);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @GetMapping(value = "validationSpare/{serial}")
+    public ResponseEntity validationSpare(@PathVariable String serial) {
+        ResponseModel response = this.InvMasterSerialS.validationSpare(serial);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @GetMapping(value = "validationSerial/{serial}")
+    public ResponseEntity validationSerial(@PathVariable String serial) {
+        ResponseModel response = this.InvMasterSerialS.validationSerial(serial);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+    @PutMapping(value = "update/{id}") //servicio actualizar
+    public ResponseEntity update(@PathVariable int id) {
+        ResponseModel response = this.InvMasterSerialS.update(id);
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    
+     @GetMapping(value = "missingCount")
+    public ResponseEntity missingCount() {
+        ResponseModel response = this.InvMasterSerialS.missingCount();
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    
+     @GetMapping(value = "missingCountFound")
+    public ResponseEntity missingCountFound() {
+        ResponseModel response = this.InvMasterSerialS.missingCountFound();
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    
+     @GetMapping(value = "spareCount")
+    public ResponseEntity spareCount() {
+        ResponseModel response = this.InvMasterSerialS.spareCount();
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+    
+     @GetMapping(value = "spareCountFound")
+    public ResponseEntity spareCountFound() {
+        ResponseModel response = this.InvMasterSerialS.spareCountFound();
+        return new ResponseEntity(response, response.getStatusCode() == 200 ? HttpStatus.OK : HttpStatus.INTERNAL_SERVER_ERROR);
+    }
+
+}

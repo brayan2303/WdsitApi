@@ -1,0 +1,257 @@
+package net.woden.wdsit.model;
+
+public class DisDailyOperationModel {
+    private int id;
+    private int customerId;
+    private String customer;
+    private int countryId;
+    private int country;
+    private int departmentId;
+    private String department;
+    private int cityId;
+    private String city;
+    private int year;
+    private int monthId;
+    private int logistic;
+    private int accumulatedLogistic;
+    private int goalLogistic;
+    private int production;
+    private int accumulatedProduction;
+    private int goalProduction;
+    private int reconditioning;
+    private int accumulatedReconditioning;
+    private int goalReconditioning;
+    private int makeover;
+    private int accumulatedMakeover;
+    private int goalMakeover;
+    private int repair;
+    private int accumulatedRepair;
+    private int goalRepair;
+    private int dispatch;
+    private String CodigoFamilia;
+
+    public int getId() {
+        return id;
+    }
+
+    public void setId(int id) {
+        this.id = id;
+    }
+
+    public int getCustomerId() {
+        return customerId;
+    }
+
+    public void setCustomerId(int customerId) {
+        this.customerId = customerId;
+    }
+
+    public String getCustomer() {
+        return customer;
+    }
+
+    public void setCustomer(String customer) {
+        this.customer = customer;
+    }
+    
+    public int getCountryId() {
+        return countryId;
+    }
+
+    public void setCountryId(int countryId) {
+        this.countryId = countryId;
+    }
+
+    public int getCountry() {
+        return country;
+    }
+
+    public void setCountry(int country) {
+        this.country = country;
+    }
+
+    public int getDepartmentId() {
+        return departmentId;
+    }
+
+    public void setDepartmentId(int departmentId) {
+        this.departmentId = departmentId;
+    }
+
+    public String getDepartment() {
+        return department;
+    }
+
+    public void setDepartment(String department) {
+        this.department = department;
+    }
+
+    public int getCityId() {
+        return cityId;
+    }
+
+    public void setCityId(int cityId) {
+        this.cityId = cityId;
+    }
+
+    public String getCity() {
+        return city;
+    }
+
+    public void setCity(String city) {
+        this.city = city;
+    }
+    
+    public int getYear() {
+        return year;
+    }
+
+    public void setYear(int year) {
+        this.year = year;
+    }
+
+    public int getMonthId() {
+        return monthId;
+    }
+
+    public void setMonthId(int monthId) {
+        this.monthId = monthId;
+    }
+
+    public int getLogistic() {
+        return logistic;
+    }
+
+    public void setLogistic(int logistic) {
+        this.logistic = logistic;
+    }
+
+    public int getAccumulatedLogistic() {
+        return accumulatedLogistic;
+    }
+
+    public void setAccumulatedLogistic(int accumulatedLogistic) {
+        this.accumulatedLogistic = accumulatedLogistic;
+    }
+
+    public int getGoalLogistic() {
+        return goalLogistic;
+    }
+
+    public void setGoalLogistic(int goalLogistic) {
+        this.goalLogistic = goalLogistic;
+    }
+
+    public int getProduction() {
+        return production;
+    }
+
+    public void setProduction(int production) {
+        this.production = production;
+    }
+
+    public int getAccumulatedProduction() {
+        return accumulatedProduction;
+    }
+
+    public void setAccumulatedProduction(int accumulatedProduction) {
+        this.accumulatedProduction = accumulatedProduction;
+    }
+
+    public int getGoalProduction() {
+        return goalProduction;
+    }
+
+    public void setGoalProduction(int goalProduction) {
+        this.goalProduction = goalProduction;
+    }
+
+    public int getReconditioning() {
+        return reconditioning;
+    }
+
+    public void setReconditioning(int reconditioning) {
+        this.reconditioning = reconditioning;
+    }
+
+    public int getAccumulatedReconditioning() {
+        return accumulatedReconditioning;
+    }
+
+    public void setAccumulatedReconditioning(int accumulatedReconditioning) {
+        this.accumulatedReconditioning = accumulatedReconditioning;
+    }
+
+    public int getGoalReconditioning() {
+        return goalReconditioning;
+    }
+
+    public void setGoalReconditioning(int goalReconditioning) {
+        this.goalReconditioning = goalReconditioning;
+    }
+
+    public int getMakeover() {
+        return makeover;
+    }
+
+    public void setMakeover(int makeover) {
+        this.makeover = makeover;
+    }
+
+    public int getAccumulatedMakeover() {
+        return accumulatedMakeover;
+    }
+
+    public void setAccumulatedMakeover(int accumulatedMakeover) {
+        this.accumulatedMakeover = accumulatedMakeover;
+    }
+
+    public int getGoalMakeover() {
+        return goalMakeover;
+    }
+
+    public void setGoalMakeover(int goalMakeover) {
+        this.goalMakeover = goalMakeover;
+    }
+
+    public int getRepair() {
+        return repair;
+    }
+
+    public void setRepair(int repair) {
+        this.repair = repair;
+    }
+
+    public int getAccumulatedRepair() {
+        return accumulatedRepair;
+    }
+
+    public void setAccumulatedRepair(int accumulatedRepair) {
+        this.accumulatedRepair = accumulatedRepair;
+    }
+
+    public int getGoalRepair() {
+        return goalRepair;
+    }
+
+    public void setGoalRepair(int goalRepair) {
+        this.goalRepair = goalRepair;
+    }
+
+    public int getDispatch() {
+        return dispatch;
+    }
+
+    public void setDispatch(int dispatch) {
+        this.dispatch = dispatch;
+    }
+
+    public String getCodigoFamilia() {
+        return CodigoFamilia;
+    }
+
+    public void setCodigoFamilia(String CodigoFamilia) {
+        this.CodigoFamilia = CodigoFamilia;
+    }
+    
+}

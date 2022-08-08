@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="null" pageWidth="595" pageHeight="842" columnWidth="555" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="81b33f19-830e-4d9e-91b7-5a2c424222ff">
+	<property name="ireport.zoom" value="1.5"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="SUBREPORT_DIR" class="java.lang.String" isForPrompting="false">
+		<defaultValueExpression><![CDATA["F:\\APLICACION\\SPRING BOOT\\wdsit_api\\src\\main\\java\\net\\woden\\wdsit\\report\\"]]></defaultValueExpression>
+	</parameter>
+	<parameter name="id" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[SELECT
+     ScpSerialImagen."id" AS ScpSerialImagen_id,
+     ScpSerialImagen."image" AS ScpSerialImagen_image,
+     ScpSerialImagen."serial" AS ScpSerialImagen_serial,
+     ScpSerialImagen."auditId" AS ScpSerialImagen_auditId
+FROM
+     "dbo"."ScpSerialImagen" ScpSerialImagen
+WHERE 
+     ScpSerialImagen."auditId" = $P{id}]]>
+	</queryString>
+	<field name="ScpSerialImagen_id" class="java.lang.Integer"/>
+	<field name="ScpSerialImagen_image" class="java.io.InputStream"/>
+	<field name="ScpSerialImagen_serial" class="java.lang.String"/>
+	<field name="ScpSerialImagen_auditId" class="java.lang.Integer"/>
+	<title>
+		<band height="89" splitType="Stretch">
+			<staticText>
+				<reportElement x="13" y="52" width="161" height="20" uuid="97399ffb-9e8f-4ef1-aac6-b03a0ca8e299"/>
+				<textElement>
+					<font isBold="true"/>
+				</textElement>
+				<text><![CDATA[4. Evidencias Fotográficas]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="13" y="72" width="146" height="17" uuid="1347c80c-bb3d-488a-b9d2-d124a3a9b3c6"/>
+				<text><![CDATA[En caso de que se requiera:]]></text>
+			</staticText>
+		</band>
+	</title>
+	<pageHeader>
+		<band splitType="Stretch"/>
+	</pageHeader>
+	<columnHeader>
+		<band splitType="Stretch"/>
+	</columnHeader>
+	<detail>
+		<band height="117">
+			<image scaleImage="FillFrame" isLazy="true" onErrorType="Blank">
+				<reportElement x="32" y="20" width="127" height="83" uuid="ff6674bb-0dfc-4453-896c-f7d42fd05e46"/>
+				<imageExpression><![CDATA[$F{ScpSerialImagen_image}]]></imageExpression>
+			</image>
+			<textField>
+				<reportElement x="32" y="0" width="127" height="20" uuid="54581874-faf8-410f-bb13-a2addedd6914"/>
+				<textFieldExpression><![CDATA[$F{ScpSerialImagen_serial}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
